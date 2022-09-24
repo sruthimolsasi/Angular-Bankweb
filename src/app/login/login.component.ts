@@ -9,8 +9,9 @@ export class LoginComponent implements OnInit {
    aim='My perfect banking patner'
    acnt='Enter your account number'
    pswd='Enter your password'
+     
   
-   acno=' '
+   acno=''
 
    userDetails:any={
     1000:{acno:1000,username:'amal',password:123,balance:100000},
@@ -24,25 +25,25 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-                          // in the case of $
-  // login(){
-  //    var acnum=this.acno
-  //    var pswd= this.pswd
-  //    let userDetails=this.userDetails
-  //    if (acnum in userDetails)
-  //    {
-  //      if(pswd==userDetails[acnum]['password']){
-  //        alert('login success')
-  //       }
-  //       else {
-  //       alert('incorrect password')
-  //       }
-  //   }
-  //   else{
-  //     alert('user not exist or incorrect password')
-  //   }
+                        
+  login(){
+     var acnum=this.acno
+     var pswd= this.pswd
+     let userDetails=this.userDetails
+     if (acnum in userDetails)
+     {
+       if(pswd==userDetails[acnum]['password']){
+         alert('login success')
+        }
+        else {
+        alert('incorrect password')
+        }
+    }
+    else{
+      alert('user not exist or incorrect password')
+    }
     
-  // }
+  }
 
 
   // acnochange(event:any)
@@ -57,28 +58,28 @@ export class LoginComponent implements OnInit {
   // }
                                       // in the case of #
    //-----------------------------------------------
-  login( a:any,b:any){
-    // console.log(a.value)
-    // console.log(b.value)
+//   login( a:any,b:any){
+//     // console.log(a.value)
+//     // console.log(b.value)
 
-    var acnum=a.value
-    var pswd=b.value
+//     var acnum=a.value
+//     var pswd=b.value
 
-    let userDetails=this.userDetails
-    if (acnum in userDetails)
-    {
-      if(pswd==userDetails[acnum]['password']){
-        alert('login success')
-       }
-       else {
-       alert('incorrect password')
-       }
-   }
-   else{
-     alert('user not exist or incorrect password')
-   }
+//     let userDetails=this.userDetails
+//     if (acnum in userDetails)
+//     {
+//       if(pswd==userDetails[acnum]['password']){
+//         alert('login success')
+//        }
+//        else {
+//        alert('incorrect password')
+//        }
+//    }
+//    else{
+//      alert('user not exist or incorrect password')
+//    }
    
- }
+//  }
   
 
 }
