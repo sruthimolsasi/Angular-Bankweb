@@ -1,0 +1,43 @@
+    
+     
+      
+     .input,[type=password],[type=text]      
+    {  
+        position: relative;                        
+        padding-left: 40px;
+        height: 40px;
+       
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }  
+    .textid,.textpass 
+    {
+        position: relative;
+    }
+    .textid i
+    {   
+         position: absolute;
+         left: 20px;
+         top: 33px;
+    }
+    .textpass i
+    {
+        position: absolute;
+         left: 20px;
+         top: 95px;
+    }
+
+    
+    
+   
+     
+    
+    
+    
+
+
+
+    
+
+   
+    
+
