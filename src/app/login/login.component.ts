@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
    aim='My perfect banking patner'
    acnt='Enter your account number'
-   pswd='Enter your password'
+   
      
   
    acno=''
-
+   pswd=''
    userDetails:any={
     1000:{acno:1000,username:'amal',password:123,balance:100000},
     1001:{acno:1001,username:'manu',password:123,balance:10000},
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
    }
 
 
-  constructor() { }
+  constructor( private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -34,6 +35,8 @@ export class LoginComponent implements OnInit {
      {
        if(pswd==userDetails[acnum]['password']){
          alert('login success')
+         //redireciton
+             this.router.navigateByUrl('dashbord')
         }
         else {
         alert('incorrect password')

@@ -19,7 +19,7 @@
                         <i class="fa-solid fa-building-columns"style="margin-top:-20px ;"></i>
                     </div>
                     <div class="textpass mt-3">
-                        <input  name="pswd" type="password"  [placeholder]="pswd"  id="passid" [(ngModel)]="pswd" class="form-control">
+                        <input  name="pswd" type="password"  placeholder= "Enter your password"  id="passid" [(ngModel)]="pswd" class="form-control">
                         <i class="fa-solid fa-lock" style="margin-top:-80px;"></i>
                         <!-- <i class="fa-sharp fa-solid fa-eye-slash"></i> -->
                     </div>
@@ -27,7 +27,7 @@
                         <button class="w-25 mt-3" (click)="login()" style=" border-radius: 6px ;border:none;margin-left:90px;background-color:rgb(82, 85, 136);height: 30px;font-weight:500;padding-top: 4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" type="button">LOGIN</button>
                     </div>
                     <div class="mt-4 text-center">
-                        <label for="" style="color:rgb(7, 9, 15); font-size: large;"> Don't have an account?<span style="padding-left:20px;"><a href="./registration.html">Create</a></span></label>
+                        <label for="" style="color:rgb(7, 9, 15); font-size: large;"> Don't have an account?<span style="padding-left:20px;"routerLink="register"> Register</span></label>
                       </div> 
                   </div>
                  </div>
