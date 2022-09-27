@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-acno=''
+   acno=''
    pswd=''
    userDetails:any={
     1000:{acno:1000,username:'amal',password:123,balance:100000},
@@ -15,4 +15,38 @@ acno=''
    }
 
   constructor() { }
+  register(acno:any,username:any,password:any)   //registre function logic
+  {
+    let userDetails=this.userDetails
+    if(acno in userDetails){
+      return false
+    }
+    else{
+      userDetails[acno]={acno,username,password,balance:0}
+      console.log(userDetails);
+
+      return true
+
+    }
+  }
+
+  login(acnum:any,pswd:any,){
+    
+    let userDetails=this.userDetails
+    if (acnum in userDetails)
+    {
+      if(pswd==userDetails[acnum]['password']){
+          return true     
+       }
+       else {
+       alert('incorrect password')
+       return false
+       }
+   }
+   else{
+     alert('user not exist or incorrect password')
+     return false
+   }
+   
+ }
 }
