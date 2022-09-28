@@ -1,1 +1,88 @@
-<h1 style="color: white;">dashbord works!</h1>
+<h1 style="color: white;">dashbord of Bank App</h1>
+<div class="vh-100">
+    <div class="container py-5 h-100  ">
+
+        <div class="row d-flex justify-content-center h-100">
+            <div class="col-md-8 col-lg-6 col-xl-4 ">
+
+                <div class="card" style=" border-radius: 35px; background: rgba(180, 183, 187, 0.3);">
+                    <div class="card-body p-4">
+
+                        <div class="flex-column text-center">
+                            <h1 class="text-center">DEPOSIT</h1>
+                        </div>
+
+                        <form (ngSubmit)="deposit()">
+                            <div class="d-flex flex-column  w-75 mt-5 " style="margin-left: 50px;">
+                                <div class="">
+                                    <input name="acno" type="text" placeholder=" Enter your account number"
+                                        [(ngModel)]="acno" id="acno" class="form-control"><br>
+
+                                </div>
+                                <div class="">
+                                    <input name="pswd" type="password" placeholder="Enter your password" id="pswd"
+                                        [(ngModel)]="pswd" class="form-control"><br>
+                                </div>
+                                <div class="">
+                                    <input name="amount" type="text" placeholder="Amount to deposit" id="depamount"
+                                        [(ngModel)]="damount" class="form-control"><br>
+                                </div>
+                                <div>
+                                    <button class="w-50"
+                                        style=" border-radius: 6px ;border:none;margin-left:90px;background-color:rgb(82, 85, 136);height: 30px;font-weight:500;padding-top: 4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+                                        type="submit">DEPOSIT</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="vh-100">
+    <div class=" container py-5 h-100 ">
+
+        <div class="row d-flex justify-content-center h-100 ">
+            <div class="col-md-8 col-lg-6 col-xl-4 ">
+
+                <div class="card" style=" margin-top: -300px; border-radius: 35px; background: rgba(180, 183, 187, 0.3);">
+                    <div class="card-body">
+
+                        <div class="flex-column text-center">
+                            <h1 class="text-center">WITHDOW</h1>
+                        </div>
+
+                        <form (ngSubmit)="withdow()">
+                            <div class="d-flex flex-column  w-75 mt-5" style="margin-left: 50px;">
+                                <div class="">
+                                    <input name="acno1" type="text" placeholder=" Enter your account number"
+                                        [(ngModel)]="acno1" id="acno1" class="form-control"> <br>
+
+                                </div>
+                                <div class="">
+                                    <input name="pswd1" type="password" placeholder="Enter your password" id="pswd1"
+                                        [(ngModel)]="pswd1" class="form-control"><br>
+                                </div>
+                                <div class="">
+                                    <input name="withdow" type="text" placeholder="Withdrow amount" id="wamount"
+                                        [(ngModel)]="wamount" class="form-control"><br>
+                                </div>
+                                <div>
+                                    <button class="w-50 "
+                                        style=" border-radius: 6px ;border:none;margin-left:90px;background-color:rgb(82, 85, 136);height: 30px;font-weight:500;padding-top: 4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+                                        type="submit">WITHDOW</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

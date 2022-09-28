@@ -49,4 +49,59 @@ export class DataService {
    }
    
  }
+deposit(acno:any,pswd:any,damount:any)
+{
+  let userDetails=this.userDetails //call database
+  var amount=parseInt(damount)     //input in the form of string type this convert to number
+  if(acno in userDetails)
+  {
+    if(pswd==userDetails[acno]['password'])
+    {
+       userDetails[acno]['balance']+=amount
+       return userDetails[acno]['balance']
+    }
+    else
+    {
+      alert('incorrect password')
+    }
+  }
+  else{
+    alert('user not exist')
+    return false
+  }
+
+}
+withdrow(acno1:any,pswd1:any,wamount:any)
+{
+  let userDetails=this.userDetails
+  var amount=parseInt(wamount)
+  if(acno1 in userDetails)
+  {
+    if(pswd1==userDetails[acno1]['password'])
+    {
+       if(amount<=userDetails[acno1]['balance'])
+       {   
+             userDetails[acno1]['balance']-=amount
+           return userDetails[acno1]['balance']
+       }
+       else
+       {
+        alert('not allow,balace is less')
+       }
+    }
+    else
+    {
+      alert('incorrect password')
+    }
+  }
+  else
+  {
+    alert('user not exist')
+    return false
+  }
+  
+}
+
+
+
 }
