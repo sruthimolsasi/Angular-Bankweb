@@ -1,11 +1,18 @@
-<h1 style="color: white;">dashbord of Bank App</h1>
+
+
+<div class="ps-5 pe-5 mt-3 ms-3">
+    <h1 style="color: white;">Welcome {{user}}!!</h1>
+</div>
+<div class="ps-5 pe-5 mt-3 ms-3 display-6">
+    <a routerLink="/transaction" style="color: rgb(144, 139, 206);">view transaction details</a>
+</div>
 <div class="vh-100">
     <div class="container py-5 h-100  ">
 
         <div class="row d-flex justify-content-center h-100">
             <div class="col-md-8 col-lg-6 col-xl-4 ">
 
-                <div class="card" style=" border-radius: 35px; background: rgba(180, 183, 187, 0.3);">
+                <div class="card" style=" border-radius: 35px; background: rgba(37, 50, 67, 0.3);">
                     <div class="card-body p-4">
 
                         <div class="flex-column text-center">
@@ -28,8 +35,8 @@
                                         [(ngModel)]="damount" class="form-control"><br>
                                 </div>
                                 <div>
-                                    <button class="w-50"
-                                        style=" border-radius: 6px ;border:none;margin-left:90px;background-color:rgb(82, 85, 136);height: 30px;font-weight:500;padding-top: 4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+                                    <button class=""
+                                        style="border-radius: 6px ;border:none;margin-left:90px;background-color:rgb(82, 85, 136);height: 30px;font-weight:500;padding-top: 4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
                                         type="submit">DEPOSIT</button>
                                 </div>
 
@@ -72,7 +79,7 @@
                                         [(ngModel)]="wamount" class="form-control"><br>
                                 </div>
                                 <div>
-                                    <button class="w-50 "
+                                    <button class=" "
                                         style=" border-radius: 6px ;border:none;margin-left:90px;background-color:rgb(82, 85, 136);height: 30px;font-weight:500;padding-top: 4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
                                         type="submit">WITHDOW</button>
                                 </div>

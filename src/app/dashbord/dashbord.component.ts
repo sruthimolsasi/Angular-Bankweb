@@ -7,6 +7,8 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./dashbord.component.css']
 })
 export class DashbordComponent implements OnInit {
+  
+  user=''
 
   acno=''
   pswd=''
@@ -17,7 +19,12 @@ export class DashbordComponent implements OnInit {
   wamount=''
 
   
-  constructor(private ds:DataService) { }
+  constructor(private ds:DataService) 
+   {
+       this.user=this.ds.currentuser
+       
+
+    }
 
   ngOnInit(): void {
   }
@@ -46,5 +53,7 @@ export class DashbordComponent implements OnInit {
         
        }
 
-}
+  }
+
+
 }
