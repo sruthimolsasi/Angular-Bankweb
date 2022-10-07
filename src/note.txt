@@ -1,5 +1,9 @@
 validation inputs
 i)Angular form validation
-  1.template driven form 
-  2.model driven form( is a butter form)
-   
+  1.template driven form   -html
+  2.model driven form( is a butter form) -ts
+       2.1  Reactive from(its class)
+          it consist of 
+               -form group
+               -array
+               -controller

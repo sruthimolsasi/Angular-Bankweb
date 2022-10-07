@@ -12,18 +12,18 @@
   
              
   
-              <form (ngSubmit)="register()">
+              <form (ngSubmit)="register()" [formGroup]="registerForm">
                 <div class="d-flex flex-column  w-75 mt-5 " style="margin-left: 50px;">
                   <div class="">
-                      <input name="uname" type="text"  placeholder="Username" [(ngModel)]="uname"  id="acid"class="form-control">
+                      <input formControlName="uname"  name="uname" type="text"  placeholder="Username"  id="acid"class="form-control">
                       <br>
                   </div>
                   <div class="">
-                      <input name="acno" type="text"  placeholder="User number" [(ngModel)]="acno"  id="acid"class="form-control">
+                      <input formControlName="acno" name="acno" type="text"  placeholder="User number"   id="acid"class="form-control">
                     
                   </div>
                   <div class=" mt-3">
-                      <input  name="" type="password"  placeholder= "Password"  id="passid" [(ngModel)]="pswd" class="form-control">
+                      <input formControlName="pswd"  name="" type="password"  placeholder= "Password"  id="passid" class="form-control">
                      <br>
     
                   </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -12,28 +13,41 @@ export class RegisterComponent implements OnInit {
 uname=''
 acno=''
 pswd=''
-
-  constructor(private ds:DataService,private router:Router) { }   //service call as ds and call router
+//model to registeration form
+  registerForm=this.fb.group({
+    uname:['',[Validators.required,Validators.pattern('[a-zA-Z]+')]],acno:['',[]],pswd:['',[]]
+  }) 
+  
+  constructor(private fb:FormBuilder, private ds:DataService,private router:Router) { }   //service call as ds and call router
 
   ngOnInit(): void {
   }
 
   register()
   {
-     var uname=this.uname
-     var acno=this.acno
-     var pswd=this.pswd
+     var uname=this.registerForm.value.uname
+     var acno=this.registerForm.value.acno
+     var pswd=this.registerForm.value.pswd
+
+     let userDetails=this.ds.userDetails
     const result=this.ds.register(acno,uname,pswd)
-       if(result)
+       if(this.registerForm.valid)
        {
-        
-        alert('registerd succefully')
-        this.router.navigateByUrl('')
+          if(result)
+          {
+         
+             alert('registerd succefully')
+            this.router.navigateByUrl('')
+          }
+        else
+         {
+           alert('user already exist')
+         }
+      }else
+       {
+        alert('form invalid')
        }
-      else
-      {
-        alert('user already exist')
-      }
+       
     // let userDetails=this.ds.userDetails //calling database
     // alert('registered')
   }
