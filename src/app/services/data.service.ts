@@ -17,7 +17,45 @@ export class DataService {
     1003:{acno:1000,username:'sruthi',password:123,balance:800000,transaction:[]},
    }
 
-  constructor() { }
+  constructor() { 
+    this.getDetails()  //get details from localstroge
+  }
+
+
+  // store current user details in local storage
+
+saveDetails(){
+  if(this.userDetails){
+    localStorage.setItem('database',JSON.stringify(this.userDetails))
+  }
+  if(this.currentuser){
+    localStorage.setItem('currentuser',JSON.stringify(this.currentuser))
+  }
+  if(this.currentacno){
+    localStorage.setItem('currentacno',JSON.stringify(this.currentacno))
+  }
+}
+
+
+//get data from local storge
+
+getDetails(){
+  if(localStorage.getItem('database'))
+  {
+    this.userDetails=JSON.parse(localStorage.getItem('database') || '')
+  }
+  if(localStorage.getItem('currentuser'))
+  {
+    this.currentuser=JSON.parse(localStorage.getItem('currentuser') || '')
+  }
+  if(localStorage.getItem('currentacno'))
+  {
+    this.currentacno=JSON.parse(localStorage.getItem('currentacno') || '')
+  }
+}
+
+
+
   register(acno:any,username:any,password:any)   //registre function logic
   {
     let userDetails=this.userDetails
@@ -25,15 +63,17 @@ export class DataService {
       return false
     }
     else{
-      userDetails[acno]={acno,username,password,balance:0}
+      userDetails[acno]={acno,username,password,balance:0,transaction:[]}
       console.log(userDetails);
+      
+      this.saveDetails()   //store  in local storge 
 
       return true
 
     }
   }
 
-  login(acnum:any,pswd:any,){
+  login(acnum:any,pswd:any){
     
     let userDetails=this.userDetails
     if (acnum in userDetails)
@@ -41,7 +81,13 @@ export class DataService {
       if(pswd==userDetails[acnum]['password']){
         this.currentuser=userDetails[acnum]['username']
         this.currentacno=acnum
-          return true     
+
+        this.saveDetails()   //store in localstorage
+
+
+          return true   
+          
+          
        }
        else {
        alert('incorrect password')
@@ -64,6 +110,8 @@ deposit(acno:any,pswd:any,damount:any)
     {
        userDetails[acno]['balance']+=amount
        userDetails[acno]['transaction'].push({type:'CREDIT',amount})
+
+       this.saveDetails()//store details in localstorage
 
        return userDetails[acno]['balance']
     }
@@ -90,6 +138,8 @@ withdrow(acno1:any,pswd1:any,wamount:any)
        {   
              userDetails[acno1]['balance']-=amount
              userDetails[acno1]['transaction'].push({type:'DEBIT',amount})
+
+             this.saveDetails() //save datas in local storage  
 
            return userDetails[acno1]['balance']
        }

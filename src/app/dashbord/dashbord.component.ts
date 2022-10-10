@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -17,9 +18,18 @@ export class DashbordComponent implements OnInit {
   acno1=''
   pswd1=''
   wamount=''
+   
+  dashbordForm=this.fb.group({
+    acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+    pswd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]],
+    damount:['',[Validators.required,Validators.pattern('[0-9]+')]],
 
+    acno1:['',[Validators.required,Validators.pattern('[0-9]+')]],
+    pswd1:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]],
+    wamount:['',[Validators.required,Validators.pattern('[0-9]+')]]
+    }) 
   
-  constructor(private ds:DataService) 
+  constructor(private fb:FormBuilder,private ds:DataService) 
    {
        this.user=this.ds.currentuser
        
@@ -31,9 +41,9 @@ export class DashbordComponent implements OnInit {
 
   deposit()
   {
-     var acno=this.acno
-     var pswd=this.pswd
-     var damount=this.damount
+     var acno=this.dashbordForm.value.acno
+     var pswd=this.dashbordForm.value.pswd
+     var damount=this.dashbordForm.value.damount
      const result=this.ds.deposit(acno,pswd,damount)
 
      if(result)             //where result is true in if case
@@ -43,9 +53,9 @@ export class DashbordComponent implements OnInit {
   }
   withdow()
   {
-      var acno1=this.acno1
-      var pswd1=this.pswd1
-      var wamount=this.wamount
+      var acno1=this.dashbordForm.value.acno1
+      var pswd1=this.dashbordForm.value.pswd1
+      var wamount=this.dashbordForm.value.wamount
       const result=this.ds.withdrow(acno1,pswd1,wamount)
       if(result)
       {

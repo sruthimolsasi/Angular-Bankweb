@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -21,16 +22,20 @@ export class LoginComponent implements OnInit {
     1002:{acno:1000,username:'ananthu',password:123,balance:4000000},
     1003:{acno:1000,username:'sruthi',password:123,balance:800000},
    }
+   
+    loginForm=this.fb.group({
+    acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+    pswd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]]
+    }) 
 
-
-  constructor( private router:Router,private ds:DataService) { }
+  constructor(private fb:FormBuilder, private router:Router,private ds:DataService) { }
 
   ngOnInit(): void {
   }
                         
   login(){
-     var acnum=this.acno
-     var pswd= this.pswd
+     var acnum=this.loginForm.value.acno
+     var pswd= this.loginForm.value.pswd
     
     const result=this.ds.login(acnum,pswd)
     if(result){

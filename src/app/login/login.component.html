@@ -13,17 +13,22 @@
                     <h1>LOGIN </h1>
                   </div>
       
-                  <form (ngSubmit)="login()">
+                  <form (ngSubmit)="login()" [formGroup]="loginForm ">
                     <div class="d-flex flex-column  w-75 mt-5 " style="margin-left: 50px;">
                       <div class="textid">
-                          <input name="acno" type="text"  [placeholder]="acnt" [(ngModel)]="acno"  id="acid"class="form-control">
+                          <input formControlName="acno" name="acno" type="text"  [placeholder]="acnt"   id="acid"class="form-control">
                           <i class="fa-solid fa-building-columns"style="margin-top:-20px ;"></i>
                       </div>
+                      <!-- validation -->
+                      <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched" class="text-danger"><p>Invalid Username</p></div>
+
                       <div class="textpass mt-3">
-                          <input  name="pswd" type="password"  placeholder= "Enter your password"  id="passid" [(ngModel)]="pswd" class="form-control">
+                          <input formControlName="pswd" name="pswd" type="password"  placeholder= "Enter your password"  id="passid"  class="form-control">
                           <i class="fa-solid fa-lock" style="margin-top:-80px;"></i>
-                          <!-- <i class="fa-sharp fa-solid fa-eye-slash"></i> -->
                       </div>
+                      <!-- validation -->
+                      <div *ngIf="this.loginForm.get('pswd')?.errors&&this.loginForm.get('pswd')?.touched" class="text-danger"><p>Invalid Password</p></div>
+
                       <div>
                           <button class="w-25 mt-3"  style=" border-radius: 6px ;border:none;margin-left:90px;background-color:rgb(82, 85, 136);height: 30px;font-weight:500;padding-top: 4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" type="submit">LOGIN</button>
                       </div>

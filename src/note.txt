@@ -7,3 +7,11 @@ i)Angular form validation
                -form group
                -array
                -controller
+
+
+
+local storage
+--------------
+1. setItem
+2. getItem
+3. removeItem
