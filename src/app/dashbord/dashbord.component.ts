@@ -38,6 +38,14 @@ export class DashbordComponent implements OnInit {
     }
 
   ngOnInit(): void {
+
+    if(!localStorage.getItem('currentacno'))  //after logout the page will not see when pressing the back arrow
+    {
+      alert('please login first')
+      this.router.navigateByUrl('')   //redirect to login page
+    }
+    
+    
   }
 
   deposit()
