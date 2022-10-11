@@ -12,14 +12,15 @@ export class DashbordComponent implements OnInit {
   
   user=''
 
-  acno=''
-  pswd=''
-  damount=''
+  // acno=''
+  // pswd=''
+  // damount=''
 
-  acno1=''
-  pswd1=''
-  wamount=''
-   
+  // acno1=''
+  // pswd1=''
+  // wamount=''
+   acnum:any    //for parent child data transfer
+
   dashbordForm=this.fb.group({
     acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
     pswd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]],
@@ -52,7 +53,7 @@ export class DashbordComponent implements OnInit {
   {
      var acno=this.dashbordForm.value.acno
      var pswd=this.dashbordForm.value.pswd
-     var damount=this.dashbordForm.value.damount
+     var damount=this.dashbordForm.value.damount    
      const result=this.ds.deposit(acno,pswd,damount)
 
      if(result)             //where result is true in if case
@@ -79,6 +80,10 @@ export class DashbordComponent implements OnInit {
     localStorage.removeItem('currentuser')  //remove current userid from local storage
     localStorage.removeItem('currentacno')  //remove current useracno from local storage
 
+  }
+  deleteconfirm()
+  {
+    this.acnum=JSON.parse(localStorage.getItem('currentacno') || '')
   }
 
 

@@ -3,9 +3,22 @@
 <div class="ps-5 pe-5 mt-3 ms-3">
     <h1 style="color: white;">Welcome {{user}}!!</h1>
 </div>
+
 <div class="ps-5 pe-5 mt-3 ms-3 display-6">
     <a routerLink="/transaction" style="color: rgb(144, 139, 206);">view transaction details</a>
 </div>
+<br>
+<div class="ps-5 pe-5 mt-3 ms-5 btn btn-secondary"> 
+    <button (click)="logout()" type="button">LOGOUT</button>
+</div>
+<br>
+<div class="ps-5 pe-5 mt-3 ms-5 btn btn-outline-danger"> 
+    <button (click)="deleteconfirm()" type="button">DELETE   </button>
+</div>
+
+<!-- child class -->
+<app-delete-confirm [item]="acnum"></app-delete-confirm>
+
 <div class="vh-100">
     <div class="container py-5 h-100  ">
 
@@ -99,9 +112,7 @@
                                 </div>
 
                             </div>
-                            <div class="ps-5 pe-5 mt-3 ms-3 btn btn-secondary"> 
-                                <button (click)="logout()" type="button">LOGOUT</button>
-                            </div>
+                            
                         </form>
                         
                     </div>
