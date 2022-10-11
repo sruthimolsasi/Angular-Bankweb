@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -29,7 +30,7 @@ export class DashbordComponent implements OnInit {
     wamount:['',[Validators.required,Validators.pattern('[0-9]+')]]
     }) 
   
-  constructor(private fb:FormBuilder,private ds:DataService) 
+  constructor(private fb:FormBuilder,private ds:DataService,private router:Router ) 
    {
        this.user=this.ds.currentuser
        
@@ -62,6 +63,13 @@ export class DashbordComponent implements OnInit {
          alert(`${wamount} is withdrowed, new balance is ${result}`)
         
        }
+
+  }
+  logout()
+  {
+    this.router.navigateByUrl('') //redirect to login page
+    localStorage.removeItem('currentuser')  //remove current userid from local storage
+    localStorage.removeItem('currentacno')  //remove current useracno from local storage
 
   }
 
