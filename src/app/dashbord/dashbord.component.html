@@ -4,6 +4,10 @@
     <h1 style="color: white;">Welcome {{user}}!!</h1>
 </div>
 
+
+<div class="text-white ms-3 ps-5 pe-5">System Date and Time{{sDetails | date: 'short'}}</div>
+
+
 <div class="ps-5 pe-5 mt-3 ms-3 display-6">
     <a routerLink="/transaction" style="color: rgb(144, 139, 206);">view transaction details</a>
 </div>
@@ -17,8 +21,9 @@
 </div>
 
 <!-- child class -->
-<app-delete-confirm [item]="acnum"></app-delete-confirm>
+<app-delete-confirm (onCancel)="oncancel()" [item]="acnum"></app-delete-confirm>
 
+<form (ngSubmit)="deposit()" [formGroup]="dashbordForm" [ngClass]="acnum?'style1':' ' ">
 <div class="vh-100">
     <div class="container py-5 h-100  ">
 
@@ -32,7 +37,7 @@
                             <h1 class="text-center">DEPOSIT</h1>
                         </div>
 
-                        <form (ngSubmit)="deposit()" [formGroup]="dashbordForm">
+                        <!-- <form (ngSubmit)="deposit()" [formGroup]="dashbordForm" [ngClass]="acnum?'style':' ' "> -->
                             <div class="d-flex flex-column  w-75 mt-5 " style="margin-left: 50px;">
                                 <div class="">
                                     <input name="acno" type="text" placeholder=" Enter your account number"
@@ -60,7 +65,7 @@
                                 </div>
 
                             </div>
-                        </form>
+                        
                     </div>
                 </div>
 
@@ -69,8 +74,10 @@
 
     </div>
 </div>
+</form>
 <br>
 <br>
+<form (ngSubmit)="withdow()" [formGroup]="dashbordForm" [ngClass]="acnum?'style1':' ' ">
 <div class="vh-100">
     <div class=" container py-5 h-100 ">
 
@@ -84,7 +91,7 @@
                             <h1 class="text-center">WITHDOW</h1>
                         </div>
 
-                        <form (ngSubmit)="withdow()" [formGroup]="dashbordForm">
+                        
                             <div class="d-flex flex-column  w-75 mt-5" style="margin-left: 50px;">
                                 <div class="">
                                     <input name="acno1" type="text" placeholder=" Enter your account number"
@@ -113,7 +120,7 @@
 
                             </div>
                             
-                        </form>
+                       
                         
                     </div>
                 </div>
@@ -123,4 +130,5 @@
         
     </div>
 </div>
+</form>
 

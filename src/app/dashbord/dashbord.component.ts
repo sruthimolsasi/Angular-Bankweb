@@ -20,6 +20,8 @@ export class DashbordComponent implements OnInit {
   // pswd1=''
   // wamount=''
    acnum:any    //for parent child data transfer
+   sDetails:any  //for date and time
+   
 
   dashbordForm=this.fb.group({
     acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
@@ -34,7 +36,9 @@ export class DashbordComponent implements OnInit {
   constructor(private fb:FormBuilder,private ds:DataService,private router:Router ) 
    {
        this.user=this.ds.currentuser
-       
+        
+      //  date and time
+      this.sDetails=new Date()
 
     }
 
@@ -85,6 +89,10 @@ export class DashbordComponent implements OnInit {
   {
     this.acnum=JSON.parse(localStorage.getItem('currentacno') || '')
   }
-
+ 
+  oncancel()
+  {
+    this.acnum=""
+  }
 
 }
